@@ -23,8 +23,19 @@
 </head>
 
 <body>
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+<script>
+  // VConsole 默认会挂载到 `window.VConsole` 上
+  var vConsole = new window.VConsole();
+  // 接下来即可照常使用 `console` 等方法
+  console.log('Hello world');
 
-  <div id="container">
+  // 结束调试后，可移除掉
+  // vConsole.destroy();
+</script>
+
+
+<div id="container">
 
     <div class="components1" style="
     position: fixed;
@@ -79,14 +90,14 @@
     <!-- Remove this when import maps will be widely supported -->
     <script async src="https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/es-module-shims.js"></script>
 
-    <script type="importmap">
+        <script type="importmap">
 			{
 				"imports": {
-					"three": "https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/three.module.js",
-					"DRACOLoader": "https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/DRACOLoader.js",
-					"GLTFLoader": "https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/GLTFLoader.js",
-					"RoomEnvironment": "https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/RoomEnvironment.js",
-					"OrbitControls": "https://lixiangpro.oss-cn-hangzhou.aliyuncs.com/resource/box/psyduck/OrbitControls.js"
+					"three": "./three.module.js",
+					"DRACOLoader": "./DRACOLoader.js",
+					"GLTFLoader": "./GLTFLoader.js",
+					"RoomEnvironment": "./RoomEnvironment.js",
+					"OrbitControls": "./OrbitControls.js"
 				}
 			}
 		</script>
