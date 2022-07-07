@@ -63,7 +63,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2022-07-07 17:42:36'
+  postUpdate: '2022-07-07 18:49:48'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,6 +166,7 @@ setTimeout(function(){preloader.endLoading();}, 5000);</script><div class="js-pj
     content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
     content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
     content = content.replace(/<[^>]+>/g,"") // remove html tag
+    content = content.replace(/!\[(.*?)\]\((.*?)\)/mg, '[图片]') // replace image link
 
     if (content.length > 150) {
       content = content.substring(0,150) + '...'
