@@ -34,8 +34,8 @@
                         <button role="BUTTON_LEFT" class="left joydirection" id="joystick_btn_left">left</button>
                     </div>
                 </div>
-                <div class="joy">I</div>
-                <div><a href="./readme.html
+                <div class="joy" onclick="alert('想什么呢?');">I</div>
+                <div id="readMe"><a href="./readme.html
             " target="_blank" class="readme">按键说明</a></div>
             </div>
             <div class="function-area">
@@ -610,6 +610,14 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
+</script>
+
+<script>
+    var screen_width = window.screen.width;
+    if(screen_width < 600){
+        var readMe = document.getElementById('readMe');
+        readMe.style.display = 'none';
+    }
 </script>
 
 </html>
