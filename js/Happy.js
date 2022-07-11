@@ -72,3 +72,9 @@ cardInfoBtn.onmouseout=function(){
    cardInfoBtn.innerText='微信：caoofduty'
 }
 
+// 链接盲盒跳转
+function linkBlindBox(){
+    var urlArr=['https://lixiangpro.com/gallery','https://lixiangpro.com/gallery/travel/'];
+    var urlIndex = Math.floor((Math.random()*urlArr.length));
+    window.location = urlArr[urlIndex];
+}
