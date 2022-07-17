@@ -65,11 +65,13 @@ document.addEventListener('visibilitychange', function() {
 
 // 作者卡片
 var cardInfoBtn=document.getElementById('card-info-btn')
-cardInfoBtn.onmouseover=function ca(){
-   cardInfoBtn.innerText='很有眼光，看好你哟~'
-}
-cardInfoBtn.onmouseout=function(){
-   cardInfoBtn.innerText='微信：caoofduty'
+if(cardInfoBtn!=null){
+    cardInfoBtn.onmouseover=function ca(){
+        cardInfoBtn.innerText='很有眼光，看好你哟~'
+    }
+    cardInfoBtn.onmouseout=function(){
+        cardInfoBtn.innerText='微信：caoofduty'
+    }
 }
 
 // 盲盒链接跳转
