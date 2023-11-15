@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/aerial/index.html</loc>
-    
-    <lastmod>2023-10-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/video/dailyLife/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
@@ -65,7 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/aerial/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
     
@@ -79,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/tags/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
     
@@ -87,6 +80,13 @@
   
   <url>
     <loc>https://www.lixiangpro.com/resources/index.html</loc>
+    
+    <lastmod>2023-10-27</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/tags/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/live/9/index.html</loc>
+    <loc>https://www.lixiangpro.com/live/2/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/live/2/index.html</loc>
+    <loc>https://www.lixiangpro.com/live/9/index.html</loc>
     
     <lastmod>2023-10-27</lastmod>
     
@@ -440,14 +440,14 @@
 
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
     <lastmod>2023-11-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
