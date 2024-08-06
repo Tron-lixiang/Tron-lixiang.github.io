@@ -15,7 +15,7 @@
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?879dec90b9fff9302511c7e34316139a";
-  var s = document.getElementsByTagName("script")[0]; 
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
 </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-0HNT1DQY11"></script><script>window.dataLayer = window.dataLayer || [];
@@ -26,7 +26,7 @@ gtag('config', 'G-0HNT1DQY11');
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-})(window, document, "clarity", "script", "jct9acj1fw");</script><script>const GLOBAL_CONFIG = { 
+})(window, document, "clarity", "script", "jct9acj1fw");</script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: {"appId":"K6MCJE9PAH","apiKey":"ad027eb59c52f2319ad6a6b590fa9bad","indexName":"lixiangpro","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
   localSearch: undefined,
@@ -115,7 +115,7 @@ gtag('config', 'G-0HNT1DQY11');
         return item.value
       }
     }
-  
+
     win.getScript = url => new Promise((resolve, reject) => {
       const script = document.createElement('script')
       script.src = url
@@ -129,7 +129,7 @@ gtag('config', 'G-0HNT1DQY11');
       }
       document.head.appendChild(script)
     })
-  
+
       win.activateDarkMode = function () {
         document.documentElement.setAttribute('data-theme', 'dark')
         if (document.querySelector('meta[name="theme-color"]') !== null) {
@@ -143,10 +143,10 @@ gtag('config', 'G-0HNT1DQY11');
         }
       }
       const t = saveToLocal.get('theme')
-    
+
           if (t === 'dark') activateDarkMode()
           else if (t === 'light') activateLightMode()
-        
+
       const asideStatus = saveToLocal.get('aside-status')
       if (asideStatus !== undefined) {
         if (asideStatus === 'hide') {
@@ -191,7 +191,7 @@ setTimeout(function(){preloader.endLoading();}, 5000);</script><div class="js-pj
     }, null))
   }
 
-  if (typeof Valine === 'function') initValine() 
+  if (typeof Valine === 'function') initValine()
   else getScript('https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/valineAdj.js').then(initValine)
 }
 
@@ -202,7 +202,7 @@ if ('Valine' === 'Valine' || !false) {
   function loadOtherComment () {
     loadValine()
   }
-}</script></div><link rel="stylesheet" href="https://lixiangpro.com/css/Happy.css"><script src='https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/cursor.js'></script><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src='https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js'></script><script data-pjax src="https://lixiangpro.com/js/Happy.js"></script><script src='https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/APlayer.min.js'></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/css/APlayer.min.css"><div id="aplayer"></div><script type="text/javascript" src="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/music.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/css/swiper-bundle.min.css"><script src="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/weather.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+}</script></div><link rel="stylesheet" href="https://lixiangpro.com/css/Happy.css"><script src='https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/cursor.js'></script><script defer src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src='https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js'></script><script data-pjax src="https://lixiangpro.com/js/Happy.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/css/swiper-bundle.min.css"><script src="https://cdn.jsdelivr.net/gh/tron-lixiang/cdn@master/js/weather.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = true;
 POWERMODE.mobile = false;
 document.body.addEventListener('input', POWERMODE);
