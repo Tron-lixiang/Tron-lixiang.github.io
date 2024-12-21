@@ -1,4 +1,4 @@
-https://www.lixiangpro.com/article/gitAndCiCd/
+https://www.lixiangpro.com/article/gitLabAndCiCd/
 https://www.lixiangpro.com/article/seckill/
 https://www.lixiangpro.com/article/valinePush/
 https://www.lixiangpro.com/article/code/
