@@ -1,3 +1,4 @@
+https://www.lixiangpro.com/article/gitAndCiCd/
 https://www.lixiangpro.com/article/seckill/
 https://www.lixiangpro.com/article/valinePush/
 https://www.lixiangpro.com/article/code/
@@ -12,4 +13,3 @@ https://www.lixiangpro.com/article/sharding-sphere/
 https://www.lixiangpro.com/article/vpn/
 https://www.lixiangpro.com/article/happy-number/
 https://www.lixiangpro.com/article/visual/
-https://www.lixiangpro.com/article/direction/
