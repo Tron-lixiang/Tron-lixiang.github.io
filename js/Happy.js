@@ -92,3 +92,13 @@ if (document.querySelector('#bber-talk')) {
         },
     });
 }
+
+// 动图自动加载
+document.addEventListener('DOMContentLoaded', function () {
+    const livePhotoElements = document.querySelectorAll('[data-live-photo]');
+    if (livePhotoElements.length > 0) {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js';
+        document.head.appendChild(script);
+    }
+});
