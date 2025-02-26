@@ -79,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/aerial/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -93,14 +93,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/shuoshuo/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/aerial/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -114,7 +107,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/live/index.html</loc>
+    <loc>https://www.lixiangpro.com/shuoshuo/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -122,6 +115,13 @@
   
   <url>
     <loc>https://www.lixiangpro.com/resources/index.html</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/live/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -247,14 +247,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/visual/</loc>
+    <loc>https://www.lixiangpro.com/article/vpn/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/vpn/</loc>
+    <loc>https://www.lixiangpro.com/article/visual/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -282,13 +282,6 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/sharding-sphere/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/article/spring/</loc>
     
     <lastmod>2025-01-20</lastmod>
@@ -303,7 +296,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/monitorSystem/</loc>
+    <loc>https://www.lixiangpro.com/article/sharding-sphere/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -317,14 +310,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/seckill/</loc>
+    <loc>https://www.lixiangpro.com/article/monitorSystem/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/happy-number/</loc>
+    <loc>https://www.lixiangpro.com/article/seckill/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -338,13 +331,6 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/article/linux/</loc>
     
     <lastmod>2025-01-20</lastmod>
@@ -352,7 +338,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/direction/</loc>
+    <loc>https://www.lixiangpro.com/article/happy-number/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -367,6 +360,13 @@
   
   <url>
     <loc>https://www.lixiangpro.com/article/gitLabAndCiCd/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/article/direction/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -482,14 +482,14 @@
 
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
     <lastmod>2025-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2025-02-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
