@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/dailyLife/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/dailyLife/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/archery/index.html</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -247,14 +247,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/vpn/</loc>
+    <loc>https://www.lixiangpro.com/article/visual/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/visual/</loc>
+    <loc>https://www.lixiangpro.com/article/vpn/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -282,6 +282,13 @@
   </url>
   
   <url>
+    <loc>https://www.lixiangpro.com/article/sharding-sphere/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lixiangpro.com/article/spring/</loc>
     
     <lastmod>2025-01-20</lastmod>
@@ -296,7 +303,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/sharding-sphere/</loc>
+    <loc>https://www.lixiangpro.com/article/monitorSystem/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -310,28 +317,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/monitorSystem/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/article/seckill/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/article/harbor/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/article/linux/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -345,7 +331,28 @@
   </url>
   
   <url>
+    <loc>https://www.lixiangpro.com/article/harbor/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lixiangpro.com/article/hello-world/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/article/linux/</loc>
+    
+    <lastmod>2025-01-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/article/direction/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
@@ -360,13 +367,6 @@
   
   <url>
     <loc>https://www.lixiangpro.com/article/gitLabAndCiCd/</loc>
-    
-    <lastmod>2025-01-20</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/article/direction/</loc>
     
     <lastmod>2025-01-20</lastmod>
     
