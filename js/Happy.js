@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const livePhotoElements = document.querySelectorAll('[data-live-photo]');
     if (livePhotoElements.length > 0) {
         const script = document.createElement('script');
-        script.src = 'https://cdn.apple-livephotoskit.com/lpk/1/livephotoskit.js';
+        script.src = 'http://localhost:4000/js/livephotoskit.js';
         document.head.appendChild(script);
     }
 });
