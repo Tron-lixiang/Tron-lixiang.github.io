@@ -1,3 +1,4 @@
+https://www.lixiangpro.com/article/elkLogSystem/
 https://www.lixiangpro.com/article/deepSeek/
 https://www.lixiangpro.com/article/harbor/
 https://www.lixiangpro.com/article/monitorSystem/
@@ -12,4 +13,3 @@ https://www.lixiangpro.com/article/squid-game/
 https://www.lixiangpro.com/article/hadoop/
 https://www.lixiangpro.com/article/spring-cloud-grid/
 https://www.lixiangpro.com/article/docker/
-https://www.lixiangpro.com/article/navigation/
