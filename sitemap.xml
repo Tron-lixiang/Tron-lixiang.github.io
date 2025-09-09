@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.lixiangpro.com/article/code/</loc>
-    
-    <lastmod>2025-07-18</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/article/k8s/</loc>
     
     <lastmod>2025-04-24</lastmod>
@@ -93,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/studio/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/other/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/other/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/studio/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
@@ -128,14 +121,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/disney/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/dailyLife/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/video/dailyLife/index.html</loc>
+    <loc>https://www.lixiangpro.com/video/disney/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
@@ -170,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/live/index.html</loc>
+    <loc>https://www.lixiangpro.com/resources/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/resources/index.html</loc>
+    <loc>https://www.lixiangpro.com/live/index.html</loc>
     
     <lastmod>2024-12-30</lastmod>
     
@@ -503,20 +496,6 @@
 
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E8%81%8C%E5%9C%BA%E5%9B%9E%E5%BF%86/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/categories/%E5%A8%B1%E4%B9%90%E6%94%BB%E7%95%A5/</loc>
-    <lastmod>2025-09-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
@@ -525,6 +504,13 @@
   
   <url>
     <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/categories/%E5%A8%B1%E4%B9%90%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2025-09-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
