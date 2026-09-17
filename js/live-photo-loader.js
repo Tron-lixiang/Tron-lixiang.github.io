@@ -10,6 +10,7 @@
 
   const boundDetails = new WeakSet()
   const players = new WeakMap()
+  const audioTracks = new WeakMap()
   const initializationQueue = []
   const fallbackTargets = new Set()
 
@@ -19,6 +20,8 @@
   let fallbackFrame = 0
   let fallbackListenersAttached = false
   let pageGeneration = 0
+  let activePlayerElement = null
+  let activeAudioTrack = null
 
   function forEachElement (elements, callback) {
     Array.prototype.forEach.call(elements, callback)
@@ -187,6 +190,86 @@
     })
   }
 
+  function getAudioTrack (element) {
+    let audio = audioTracks.get(element)
+    if (audio) return audio
+
+    audio = new Audio(element.getAttribute('data-lp-video'))
+    audio.loop = true
+    audio.muted = false
+    audio.volume = 1
+    audio.preload = 'metadata'
+    audio.setAttribute('playsinline', '')
+    audioTracks.set(element, audio)
+    return audio
+  }
+
+  function stopActiveAudioTrack () {
+    if (!activeAudioTrack) return
+    activeAudioTrack.pause()
+    activeAudioTrack.currentTime = 0
+    activeAudioTrack = null
+  }
+
+  function playAudioTrack (element) {
+    const audio = getAudioTrack(element)
+
+    if (activeAudioTrack !== audio) {
+      stopActiveAudioTrack()
+      audio.currentTime = 0
+      activeAudioTrack = audio
+    }
+
+    audio.muted = false
+    audio.volume = 1
+    const playResult = audio.play()
+    if (playResult && typeof playResult.catch === 'function') {
+      // Browsers can reject sound from a hover before the first user gesture.
+      // A click, touch, or keyboard activation will retry it immediately.
+      playResult.catch(() => {})
+    }
+  }
+
+  function activatePersistentPlayback (element, player) {
+    if (activePlayerElement && activePlayerElement !== element) {
+      const previousPlayer = players.get(activePlayerElement)
+      if (previousPlayer && typeof previousPlayer.stop === 'function') previousPlayer.stop()
+      activePlayerElement.setAttribute('aria-pressed', 'false')
+      activePlayerElement.classList.remove('live-photo__player--active')
+    }
+
+    player.play()
+    playAudioTrack(element)
+    activePlayerElement = element
+    element.setAttribute('aria-pressed', 'true')
+    element.classList.add('live-photo__player--active')
+  }
+
+  function bindPersistentPlayback (element, player) {
+    const activate = event => {
+      if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return
+      if (event.type === 'keydown') event.preventDefault()
+      activatePersistentPlayback(element, player)
+    }
+
+    // Start on press rather than click so the Live Photo wins the first user
+    // gesture instead of the backing video element consuming it first.
+    element.addEventListener('pointerdown', event => {
+      event.preventDefault()
+      activatePersistentPlayback(element, player)
+    }, true)
+    element.addEventListener('pointerenter', activate)
+    element.addEventListener('click', activate)
+    element.addEventListener('keydown', activate)
+
+    // LivePhotosKit stops loop effects on touchend. Keep the selected image
+    // playing; the following click will also safely reassert the selection.
+    element.addEventListener('touchend', event => {
+      event.stopImmediatePropagation()
+      activatePersistentPlayback(element, player)
+    }, true)
+  }
+
   async function initializeLivePhoto (element, generation) {
     setState(element, 'loading')
 
@@ -205,6 +288,8 @@
         caption: element.getAttribute('data-lp-caption') || 'Live Photo',
         autoplay: false,
         proactivelyLoadsVideo: false,
+        // LivePhotosKit's control layer also supplies the desktop click
+        // interaction. Keep it enabled; mobile video taps are isolated in CSS.
         showsNativeControls: true
       })
 
@@ -219,7 +304,14 @@
       }
 
       setState(element, 'ready')
+      bindPersistentPlayback(element, player)
       player.addEventListener('error', () => {
+        if (activePlayerElement === element) {
+          activePlayerElement = null
+          stopActiveAudioTrack()
+        }
+        element.setAttribute('aria-pressed', 'false')
+        element.classList.remove('live-photo__player--active')
         element.classList.add('live-photo__player--playback-error')
       }, false)
     } catch (error) {
@@ -354,6 +446,12 @@
 
       const player = players.get(element)
       if (player && typeof player.stop === 'function') player.stop()
+      if (activePlayerElement === element) {
+        activePlayerElement = null
+        stopActiveAudioTrack()
+      }
+      element.setAttribute('aria-pressed', 'false')
+      element.classList.remove('live-photo__player--active')
     })
 
     detachFallbackListeners()
@@ -402,7 +500,12 @@
     forEachElement(document.querySelectorAll(LIVE_PHOTO_SELECTOR), element => {
       const player = players.get(element)
       if (player && typeof player.stop === 'function') player.stop()
+      element.setAttribute('aria-pressed', 'false')
+      element.classList.remove('live-photo__player--active')
     })
+
+    activePlayerElement = null
+    stopActiveAudioTrack()
 
     if (intersectionObserver) {
       intersectionObserver.disconnect()

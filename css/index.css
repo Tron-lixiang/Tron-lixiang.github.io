@@ -9297,6 +9297,16 @@ kbd {
   height: 100%;
   object-fit: contain;
 }
+.live-photo__player .lpk-badge {
+  pointer-events: none;
+}
+.live-photo__player--active {
+  -webkit-box-shadow: 0 0 0 3px rgba(73,177,245,0.8);
+  box-shadow: 0 0 0 3px rgba(73,177,245,0.8);
+}
+.live-photo__player:focus:not(:focus-visible) {
+  outline: none;
+}
 .live-photo__placeholder {
   position: absolute;
   inset: 0;
@@ -9355,6 +9365,14 @@ kbd {
   }
   .live-photo__player {
     border-radius: 8px;
+  }
+}
+@media (hover: none) and (pointer: coarse) {
+  .live-photo__player video {
+    pointer-events: none;
+  }
+  .live-photo__player video::-webkit-media-controls {
+    display: none !important;
   }
 }
 @-moz-keyframes live-photo-shimmer {
