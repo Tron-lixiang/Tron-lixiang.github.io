@@ -6,6 +6,7 @@
   const MAX_CONCURRENT_PHOTOS = 2
   const SDK_TIMEOUT = 20000
   const PHOTO_TIMEOUT = 20000
+  const VIDEO_READY_TIMEOUT = 30000
   const VIEWPORT_MARGIN = 320
 
   const boundDetails = new WeakSet()
@@ -22,6 +23,7 @@
   let pageGeneration = 0
   let activePlayerElement = null
   let activeAudioTrack = null
+  let playbackMonitorId = null
 
   function forEachElement (elements, callback) {
     Array.prototype.forEach.call(elements, callback)
@@ -190,6 +192,48 @@
     })
   }
 
+  // A `videoload` event only means that the video resource arrived. Wait until
+  // LivePhotosKit has also decoded a renderable frame before exposing the
+  // player, otherwise switching from the still image to the video canvas can
+  // briefly paint a white frame on slower mobile networks.
+  function waitForVideoFrame (player) {
+    return new Promise((resolve, reject) => {
+      let settled = false
+      let checkTimer = null
+
+      const isReady = () => player.canPlay || (player.renderer && player.renderer.isFullyPreparedForPlayback)
+      const cleanup = () => {
+        window.clearTimeout(timeoutId)
+        window.clearInterval(checkTimer)
+        player.removeEventListener('videoload', handleVideoLoad, false)
+        player.removeEventListener('error', handleError, false)
+      }
+      const finish = error => {
+        if (settled) return
+        settled = true
+        cleanup()
+        error ? reject(error) : resolve()
+      }
+      const check = () => {
+        if (isReady()) finish()
+      }
+      const handleVideoLoad = () => check()
+      const handleError = event => {
+        const detail = event && event.detail
+        finish(detail && (detail.error || detail.message) ? (detail.error || new Error(detail.message)) : new Error('Failed to load Live Photo video.'))
+      }
+
+      const timeoutId = window.setTimeout(() => {
+        finish(new Error('Timed out while preparing the Live Photo video.'))
+      }, VIDEO_READY_TIMEOUT)
+
+      player.addEventListener('videoload', handleVideoLoad, false)
+      player.addEventListener('error', handleError, false)
+      checkTimer = window.setInterval(check, 100)
+      check()
+    })
+  }
+
   function getAudioTrack (element) {
     let audio = audioTracks.get(element)
     if (audio) return audio
@@ -211,6 +255,18 @@
     activeAudioTrack = null
   }
 
+  function clearActivePlayback (element) {
+    if (activePlayerElement !== element) return
+    activePlayerElement = null
+    stopActiveAudioTrack()
+    element.setAttribute('aria-pressed', 'false')
+    element.classList.remove('live-photo__player--active')
+    if (playbackMonitorId !== null) {
+      window.clearInterval(playbackMonitorId)
+      playbackMonitorId = null
+    }
+  }
+
   function playAudioTrack (element) {
     const audio = getAudioTrack(element)
 
@@ -230,7 +286,28 @@
     }
   }
 
+  // LivePhotosKit exposes pause/stop as read-only methods, so decorating them
+  // throws and prevents the button from ever becoming ready. Monitor only the
+  // selected player instead; when it stops, its companion audio stops too.
+  function monitorActivePlayback () {
+    if (playbackMonitorId !== null) return
+    playbackMonitorId = window.setInterval(() => {
+      if (!activePlayerElement) return
+      const player = players.get(activePlayerElement)
+      if (!player || !player.isPlaying) clearActivePlayback(activePlayerElement)
+    }, 150)
+  }
+
+  function stopActivePlayback () {
+    if (!activePlayerElement) return
+    const element = activePlayerElement
+    const player = players.get(element)
+    if (player && typeof player.stop === 'function') player.stop()
+    clearActivePlayback(element)
+  }
+
   function activatePersistentPlayback (element, player) {
+    if (getState(element) !== 'ready') return
     if (activePlayerElement && activePlayerElement !== element) {
       const previousPlayer = players.get(activePlayerElement)
       if (previousPlayer && typeof previousPlayer.stop === 'function') previousPlayer.stop()
@@ -243,6 +320,7 @@
     activePlayerElement = element
     element.setAttribute('aria-pressed', 'true')
     element.classList.add('live-photo__player--active')
+    monitorActivePlayback()
   }
 
   function bindPersistentPlayback (element, player) {
@@ -287,7 +365,10 @@
         effectType: element.getAttribute('data-lp-effect') || 'live',
         caption: element.getAttribute('data-lp-caption') || 'Live Photo',
         autoplay: false,
-        proactivelyLoadsVideo: false,
+        // Download and decode the video while the still photo is covered by
+        // the loading layer. Playback will only be enabled after a frame is
+        // renderable, preventing a network-driven white flash on first tap.
+        proactivelyLoadsVideo: true,
         // LivePhotosKit's control layer also supplies the desktop click
         // interaction. Keep it enabled; mobile video taps are isolated in CSS.
         showsNativeControls: true
@@ -297,6 +378,7 @@
 
       players.set(element, player)
       await waitForPhoto(player, element)
+      await waitForVideoFrame(player)
 
       if (generation !== pageGeneration) {
         player.stop()
@@ -447,8 +529,7 @@
       const player = players.get(element)
       if (player && typeof player.stop === 'function') player.stop()
       if (activePlayerElement === element) {
-        activePlayerElement = null
-        stopActiveAudioTrack()
+        clearActivePlayback(element)
       }
       element.setAttribute('aria-pressed', 'false')
       element.classList.remove('live-photo__player--active')
@@ -504,8 +585,7 @@
       element.classList.remove('live-photo__player--active')
     })
 
-    activePlayerElement = null
-    stopActiveAudioTrack()
+    stopActivePlayback()
 
     if (intersectionObserver) {
       intersectionObserver.disconnect()
@@ -548,6 +628,10 @@
   }
 
   document.addEventListener('click', forceFullNavigationFromLivePhotoPage, true)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopActivePlayback()
+  })
+  window.addEventListener('pagehide', stopActivePlayback)
   document.addEventListener('pjax:send', stopCurrentPagePlayers)
   document.addEventListener('pjax:complete', start)
   document.addEventListener('pjax:error', start)

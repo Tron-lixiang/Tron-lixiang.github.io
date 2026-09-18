@@ -9267,29 +9267,11 @@ kbd {
   border-radius: 10px;
   background: rgba(127,127,127,0.12);
 }
-.live-photo__player[data-lp-state='loading']::before {
-  position: absolute;
-  z-index: 5;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: -webkit-linear-gradient(0deg, transparent, rgba(255,255,255,0.22), transparent);
-  background: -moz-linear-gradient(0deg, transparent, rgba(255,255,255,0.22), transparent);
-  background: -o-linear-gradient(0deg, transparent, rgba(255,255,255,0.22), transparent);
-  background: -ms-linear-gradient(0deg, transparent, rgba(255,255,255,0.22), transparent);
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
-  content: '';
-  -webkit-animation: live-photo-shimmer 1.4s infinite;
-  -moz-animation: live-photo-shimmer 1.4s infinite;
-  -o-animation: live-photo-shimmer 1.4s infinite;
-  -ms-animation: live-photo-shimmer 1.4s infinite;
-  animation: live-photo-shimmer 1.4s infinite;
+.live-photo__player[data-lp-state='loading'] .lpk-badge {
+  opacity: 0.45;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=45)";
+  filter: alpha(opacity=45);
   pointer-events: none;
-}
-.live-photo__player[data-lp-state='ready']::before,
-.live-photo__player[data-lp-state='error']::before {
-  display: none;
 }
 .live-photo__player img {
   display: block;
@@ -9373,26 +9355,6 @@ kbd {
   }
   .live-photo__player video::-webkit-media-controls {
     display: none !important;
-  }
-}
-@-moz-keyframes live-photo-shimmer {
-  100% {
-    left: 100%;
-  }
-}
-@-webkit-keyframes live-photo-shimmer {
-  100% {
-    left: 100%;
-  }
-}
-@-o-keyframes live-photo-shimmer {
-  100% {
-    left: 100%;
-  }
-}
-@keyframes live-photo-shimmer {
-  100% {
-    left: 100%;
   }
 }
 audio,
