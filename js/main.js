@@ -822,7 +822,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const lazyloadImg = () => {
     window.lazyLoadInstance = new LazyLoad({
-      elements_selector: 'img',
+      // Only manage images rewritten by Butterfly's lazyload filter.
+      // Douban creates native lazy-loaded images with src, without data-lazy-src.
+      elements_selector: 'img[data-lazy-src]',
       threshold: 0,
       data_src: 'lazy-src'
     })
