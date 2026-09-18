@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.lixiangpro.com/gallery/travel/index.html</loc>
+    
+    <lastmod>2026-09-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.lixiangpro.com/video/travel/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
@@ -136,13 +143,6 @@
   
   <url>
     <loc>https://www.lixiangpro.com/gallery/welfare/index.html</loc>
-    
-    <lastmod>2026-09-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/gallery/travel/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -303,7 +303,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
+    <loc>https://www.lixiangpro.com/article/k8s/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -317,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/k8s/</loc>
+    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/docker/</loc>
+    <loc>https://www.lixiangpro.com/article/disneyAndUniversalStudios/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/disneyAndUniversalStudios/</loc>
+    <loc>https://www.lixiangpro.com/article/docker/</loc>
     
     <lastmod>2026-09-09</lastmod>
     

@@ -9282,6 +9282,29 @@ kbd {
 .live-photo__player .lpk-badge {
   pointer-events: none;
 }
+.live-photo__player[data-lp-effect='live'] .lpk-badge {
+  display: none !important;
+}
+.live-photo__player[data-lp-effect='live'][data-lp-state='ready']::after {
+  position: absolute;
+  z-index: 5;
+  top: 10px;
+  left: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 68px;
+  height: 25px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.7);
+  color: #000;
+  content: '◎ LIVE';
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 25px;
+  text-align: center;
+  pointer-events: none;
+}
 .live-photo__player--active {
   -webkit-box-shadow: 0 0 0 3px rgba(73,177,245,0.8);
   box-shadow: 0 0 0 3px rgba(73,177,245,0.8);

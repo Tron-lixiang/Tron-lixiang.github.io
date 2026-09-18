@@ -16,6 +16,7 @@
   const fallbackTargets = new Set()
 
   let intersectionObserver = null
+  let activePlaybackVisibilityObserver = null
   let livePhotosKitPromise = null
   let activeInitializations = 0
   let fallbackFrame = 0
@@ -257,6 +258,7 @@
 
   function clearActivePlayback (element) {
     if (activePlayerElement !== element) return
+    if (activePlaybackVisibilityObserver) activePlaybackVisibilityObserver.unobserve(element)
     activePlayerElement = null
     stopActiveAudioTrack()
     element.setAttribute('aria-pressed', 'false')
@@ -294,7 +296,10 @@
     playbackMonitorId = window.setInterval(() => {
       if (!activePlayerElement) return
       const player = players.get(activePlayerElement)
-      if (!player || !player.isPlaying) clearActivePlayback(activePlayerElement)
+      // Switching away clears the old player's decoded frames. It can report
+      // isPlaying=false briefly while wantsToPlay=true and it prepares them
+      // again. Treat only an explicit no-longer-wants-to-play state as stopped.
+      if (!player || (!player.isPlaying && !player.wantsToPlay)) clearActivePlayback(activePlayerElement)
     }, 150)
   }
 
@@ -306,13 +311,30 @@
     clearActivePlayback(element)
   }
 
+  function observeActivePlaybackVisibility (element) {
+    if (!('IntersectionObserver' in window)) return
+
+    if (!activePlaybackVisibilityObserver) {
+      activePlaybackVisibilityObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          // A Live Photo should never continue rendering or sounding after it
+          // has scrolled completely out of view. Returning into view leaves it
+          // paused; a new user gesture is required to start it again.
+          if (activePlayerElement === entry.target && !entry.isIntersecting) stopActivePlayback()
+        })
+      }, { threshold: 0.01 })
+    }
+
+    activePlaybackVisibilityObserver.observe(element)
+  }
+
   function activatePersistentPlayback (element, player) {
     if (getState(element) !== 'ready') return
     if (activePlayerElement && activePlayerElement !== element) {
-      const previousPlayer = players.get(activePlayerElement)
+      const previousElement = activePlayerElement
+      const previousPlayer = players.get(previousElement)
       if (previousPlayer && typeof previousPlayer.stop === 'function') previousPlayer.stop()
-      activePlayerElement.setAttribute('aria-pressed', 'false')
-      activePlayerElement.classList.remove('live-photo__player--active')
+      clearActivePlayback(previousElement)
     }
 
     player.play()
@@ -321,6 +343,7 @@
     element.setAttribute('aria-pressed', 'true')
     element.classList.add('live-photo__player--active')
     monitorActivePlayback()
+    observeActivePlaybackVisibility(element)
   }
 
   function bindPersistentPlayback (element, player) {
@@ -353,6 +376,12 @@
 
     try {
       const LivePhotosKit = await loadLivePhotosKit()
+      const requestedEffect = element.getAttribute('data-lp-effect') || 'live'
+      // `live` uses the SDK's one-shot recipe, which fades back to the still
+      // photo at the end of every pass. Use its loop renderer for a stable,
+      // continuously selected Live Photo; `bounce` and `loop` already map to
+      // that renderer.
+      const effectType = requestedEffect === 'live' ? 'loop' : requestedEffect
 
       if (generation !== pageGeneration || !canInitialize(element)) {
         setState(element, 'idle')
@@ -362,7 +391,7 @@
       const player = LivePhotosKit.augmentElementAsPlayer(element, {
         photoSrc: element.getAttribute('data-lp-photo'),
         videoSrc: element.getAttribute('data-lp-video'),
-        effectType: element.getAttribute('data-lp-effect') || 'live',
+        effectType,
         caption: element.getAttribute('data-lp-caption') || 'Live Photo',
         autoplay: false,
         // Download and decode the video while the still photo is covered by
