@@ -4,7 +4,7 @@
   const LIVE_PHOTO_SELECTOR = '.js-live-photo'
   // Cache-bust the patched SDK too: it owns the internal video element on
   // mobile and must not be served from an older browser cache.
-  const SDK_URL = '/js/livephotoskit.js?v=2'
+  const SDK_URL = '/js/livephotoskit.js?v=3'
   const MAX_CONCURRENT_PHOTOS = 2
   const SDK_TIMEOUT = 20000
   const PHOTO_TIMEOUT = 20000

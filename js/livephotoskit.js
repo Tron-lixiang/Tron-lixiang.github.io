@@ -3303,9 +3303,14 @@
                         i && t) {
                             if (!(this._lastUpdateChangeToken !== (this._lastUpdateChangeToken = i + ":" + t)) && !n)
                                 return !1;
-                            var a = r.i(d.a)(this.photoWidth, this.photoHeight, i, t)
-                                , o = Math.ceil(a.height)
-                                , s = Math.ceil(a.width)
+                            // The original SDK used a contain calculation here,
+                            // which leaves letterboxing when a Live Photo is
+                            // shown in the gallery's fixed-ratio card. Use the
+                            // cover scale instead: keep the source ratio and
+                            // crop only the overflow outside the player.
+                            var a = Math.max(i / this.photoWidth, t / this.photoHeight)
+                                , o = Math.ceil(this.photoHeight * a)
+                                , s = Math.ceil(this.photoWidth * a)
                                 , l = Math.floor(i / 2 - s / 2)
                                 , c = Math.round(t / 2 - o / 2)
                                 , u = this.renderer;
