@@ -310,13 +310,6 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
-    
-    <lastmod>2026-09-09</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.lixiangpro.com/article/k8s/</loc>
     
     <lastmod>2026-09-09</lastmod>
@@ -325,6 +318,13 @@
   
   <url>
     <loc>https://www.lixiangpro.com/article/linux/</loc>
+    
+    <lastmod>2026-09-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.lixiangpro.com/article/hello-world/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -359,14 +359,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/docker/</loc>
+    <loc>https://www.lixiangpro.com/article/disneyAndUniversalStudios/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/article/disneyAndUniversalStudios/</loc>
+    <loc>https://www.lixiangpro.com/article/docker/</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -496,14 +496,14 @@
 
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
+    <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2026-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
