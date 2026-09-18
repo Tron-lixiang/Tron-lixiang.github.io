@@ -4078,6 +4078,11 @@
                     return e || (e = this.__internalVideo = document.createElement("video"),
                         e.addEventListener("canplay", this.loadDidSucceed.bind(this)),
                         e.addEventListener("error", this.loadDidFail.bind(this)),
+                        e.muted = !0,
+                        e.playsInline = !0,
+                        e.setAttribute("playsinline", ""),
+                        e.setAttribute("webkit-playsinline", ""),
+                        e.setAttribute("disablepictureinpicture", ""),
                         e.volume = 0),
                         e
                 },

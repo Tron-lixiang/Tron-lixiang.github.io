@@ -2,7 +2,9 @@
   'use strict'
 
   const LIVE_PHOTO_SELECTOR = '.js-live-photo'
-  const SDK_URL = '/js/livephotoskit.js'
+  // Cache-bust the patched SDK too: it owns the internal video element on
+  // mobile and must not be served from an older browser cache.
+  const SDK_URL = '/js/livephotoskit.js?v=2'
   const MAX_CONCURRENT_PHOTOS = 2
   const SDK_TIMEOUT = 20000
   const PHOTO_TIMEOUT = 20000
@@ -106,20 +108,10 @@
     const naturalHeight = Number(height)
     if (!Number.isFinite(naturalWidth) || !Number.isFinite(naturalHeight) || naturalWidth <= 0 || naturalHeight <= 0) return
 
-    const figure = element.closest('.live-photo')
-    const styleTarget = figure || element
-    const isPortrait = naturalHeight > naturalWidth
-    const aspectRatio = `${naturalWidth} / ${naturalHeight}`
-
-    styleTarget.style.setProperty('--live-photo-aspect-ratio', aspectRatio)
-    element.style.aspectRatio = aspectRatio
-    element.style.minHeight = '0'
+    // `live` and `live2` explicitly choose a card layout. Recording the
+    // source dimensions is useful for diagnostics, but resizing the card to
+    // every source photo causes uneven mixed-gallery spacing and letterboxing.
     element.setAttribute('data-lp-aspect-ratio', `${naturalWidth}:${naturalHeight}`)
-
-    if (figure) {
-      figure.classList.toggle('live-photo--portrait', isPortrait)
-      figure.classList.toggle('live-photo--landscape', !isPortrait)
-    }
   }
 
   function waitForPhoto (player, element) {
@@ -398,9 +390,10 @@
         // the loading layer. Playback will only be enabled after a frame is
         // renderable, preventing a network-driven white flash on first tap.
         proactivelyLoadsVideo: true,
-        // LivePhotosKit's control layer also supplies the desktop click
-        // interaction. Keep it enabled; mobile video taps are isolated in CSS.
-        showsNativeControls: true
+        // The page owns the interaction and renders its own LIVE badge. Do not
+        // expose the SDK's control layer, which is easily mistaken for a
+        // native video player on mobile browsers.
+        showsNativeControls: false
       })
 
       if (!player) throw new Error('LivePhotosKit did not create a player.')

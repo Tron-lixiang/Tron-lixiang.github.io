@@ -9277,7 +9277,7 @@ kbd {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .live-photo__player .lpk-badge {
   pointer-events: none;
@@ -9358,10 +9358,10 @@ kbd {
   height: auto;
 }
 .live-photo--landscape .live-photo__player {
-  aspect-ratio: var(--live-photo-aspect-ratio, 1.333333333333333);
+  aspect-ratio: 4/3;
 }
 .live-photo--portrait .live-photo__player {
-  aspect-ratio: var(--live-photo-aspect-ratio, 0.75);
+  aspect-ratio: 3/4;
 }
 @media screen and (max-width: 768px) {
   .live-photo {
