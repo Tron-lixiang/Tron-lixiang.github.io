@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/gallery/archery/index.html</loc>
+    <loc>https://www.lixiangpro.com/gallery/aerial/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.lixiangpro.com/gallery/aerial/index.html</loc>
+    <loc>https://www.lixiangpro.com/gallery/archery/index.html</loc>
     
     <lastmod>2026-09-09</lastmod>
     
@@ -496,6 +496,13 @@
 
   
   <url>
+    <loc>https://www.lixiangpro.com/categories/%E5%A8%B1%E4%B9%90%E6%94%BB%E7%95%A5/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.lixiangpro.com/categories/%E5%8D%9A%E5%AE%A2%E5%AF%BC%E8%88%AA/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>daily</changefreq>
@@ -504,13 +511,6 @@
   
   <url>
     <loc>https://www.lixiangpro.com/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2026-09-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.lixiangpro.com/categories/%E5%A8%B1%E4%B9%90%E6%94%BB%E7%95%A5/</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
